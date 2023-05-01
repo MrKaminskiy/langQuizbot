@@ -1,4 +1,5 @@
-# bot = Bot(token="5927342752:AAGvYv1LNg2lVNVQPUFTYLjfaxCDM81xkps")
+import os
+from dotenv import load_dotenv
 from aiogram import Bot, types
 from tabulate import tabulate
 from aiogram.dispatcher import Dispatcher, FSMContext
@@ -8,10 +9,11 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from utils import save_word, delete_word, modify_word, get_all_words
 import random
 
+load_dotenv()
 
-TOKEN = 'your_bot_token_here'
+TOKEN = os.getenv('BOT_TOKEN')
 
-bot = Bot(token="5927342752:AAGvYv1LNg2lVNVQPUFTYLjfaxCDM81xkps")
+bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
 
 user_data = {}
